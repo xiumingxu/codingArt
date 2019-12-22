@@ -41,7 +41,7 @@ void setup(){
   
  
     size(600, 600, OPENGL);
-    background(255, 1);
+    background(255, 0);
     frameRate(25);
     
  
@@ -53,7 +53,8 @@ void setup(){
 
     }
     noFill();
-    stroke(100, 100, 100, 50); 
+
+    stroke(161,66,255, 50); 
     
        RG.init(this);
     f = new RFont(font, 372, RFont.CENTER );
@@ -81,13 +82,14 @@ void setup(){
                     len = random(-LENGTHANGENT, LENGTHANGENT);
                     angle = atan2(tg.y,tg.x) + random(-ANGLEERROR, ANGLEERROR);
                     
-                    //bezier(p.x, p.y, 10, 10, 90, 90, 15, 80);
+                    bezier(p.x, p.y, 10, 10,-0,-130, 0, 0);
+                    //line(100,200, 400, 600);
                     //bezier(p.x, p.y, 100, 10, 90, 90, 15, 80);
                     // ellipse(p.x/1.1, p.y/1.1, 27,27);
 
 
                     
-                    line(p.x/1.2, p.y/1.2, p.x+80, p.y*1.2);
+                    //line(p.x/1.2, p.y/1.2, p.x+80, p.y*1.2);
                         //    line(p.x, p.y,p.x-18,p.y+18);
                 }
             //}
@@ -95,10 +97,15 @@ void setup(){
         popMatrix();
 
     }
+    void keyPressed() { 
+    if (keyCode==ENTER) { 
+      saveFrame("screen-####.png");
+    }
+}
     void intialize(){
      
         grp = f.toGroup(str);
        
         grp.centerIn(g, MARGIN,1, 1);
-        background(255, 1);
+        background(255, 0);
     }
